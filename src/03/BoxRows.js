@@ -13,7 +13,7 @@ const BoxRows = ({mvs}) => {
                 <td>{mv.rank}</td>
                 <td>{mv.movieNm}</td>
                 <td><span  className="price">&#8361; {parseInt(mv.salesAmt).toLocaleString()}</span></td>
-                <td>{rankEmoji} {Math.abs(inten)}</td>
+                <td>{rankEmoji} {inten == 0 ? '' : Math.abs(inten)}</td>
             </tr>
         );
     }
@@ -28,7 +28,7 @@ const BoxRows = ({mvs}) => {
 
 const getRankEmoji = (rankInten) => {
     if (rankInten == 0) {
-        return '⏺';
+        return '';
     } else if (rankInten > 0) {
         return '🔼';
     } else {
