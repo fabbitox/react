@@ -1,10 +1,9 @@
 import './App.css';
-import Box from './03/Box';
-import './03/Box.css';
+import MyDiv from './04/MyDiv';
 
 function App() {
   return (
-    <Box />
+    <MyDiv />
   );
 }
 
