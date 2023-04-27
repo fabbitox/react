@@ -1,10 +1,11 @@
 import { useState } from "react";
+import './Box.css';
 
 const BoxRows = ({mvs}) => {
     const [footTag, setTootTag] = useState('');
     const showMv = (mv) => {
         console.log(mv);
-        setTootTag(mv.movieCd);
+        setTootTag(`[${mv.movieCd}] ${mv.movieNm} 개봉일: ${mv.openDt}`);
     }
 
     let trTags = [];
@@ -17,7 +18,7 @@ const BoxRows = ({mvs}) => {
                 <td><span className="rank">{mv.rank}</span></td>
                 <td>{mv.movieNm}</td>
                 <td><span  className="price">&#8361; {parseInt(mv.salesAmt).toLocaleString()}</span></td>
-                <td>{rankEmoji} {inten == 0 ? '' : Math.abs(inten)}</td>
+                <td><span className="arrow">{rankEmoji} </span>{inten === 0 ? '' : Math.abs(inten)}</td>
             </tr>
         );
     }
@@ -32,12 +33,12 @@ const BoxRows = ({mvs}) => {
 }
 
 const getRankEmoji = (rankInten) => {
-    if (rankInten == 0) {
+    if (rankInten === 0) {
         return '';
     } else if (rankInten > 0) {
-        return '🔼';
+        return '▲';
     } else {
-        return '🔽';
+        return '▼';
     }
 }
 

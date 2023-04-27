@@ -6,6 +6,33 @@
 
 .rank {
     display: inline-flex;
-    width: 2em;
+    width: 1.5em;
     justify-content: right;
+}
+
+.arrow {
+    color: #6633ff;
+}
+
+thead th {
+    background-color: #66ccff;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+tfoot th {
+    background-color: #cc66ff;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    border-spacing: 5px;
+    border-collapse: separate;
 }

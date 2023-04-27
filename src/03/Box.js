@@ -8,7 +8,7 @@ const Box = () => {
             <article>
                 <header><h1>일별 박스오피스</h1></header>
                 <table>
-                <thead>
+                <thead className="color">
                     <tr>
                         <th scope="col">순위</th>
                         <th scope="col">영화</th>
