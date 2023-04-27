@@ -1,11 +1,9 @@
 import './App.css';
-// import MyDiv from './04/MyDiv';
-import Box from './03/Box';
-import './03/Box.css';
+import MyClock from './02/MyClock';
 
 function App() {
   return (
-    <Box />
+    <MyClock />
   );
 }
 
