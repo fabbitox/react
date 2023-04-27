@@ -1,9 +1,9 @@
 import './App.css';
-import Box from './03/Box';
+import Frcst from './05/Frcst';
 
 function App() {
   return (
-    <Box />
+    <Frcst />
   );
 }
 
