@@ -2,10 +2,11 @@ import { useState } from "react";
 import './Box.css';
 
 const BoxRows = ({mvs}) => {
-    const [footTag, setTootTag] = useState('');
+    const [footTag, setFootTag] = useState('');
     const showMv = (mv) => {
         console.log(mv);
-        setTootTag(`[${mv.movieCd}] ${mv.movieNm} 개봉일: ${mv.openDt}`);
+        //setFootTag(`[${mv.movieCd}] ${mv.movieNm} 개봉일: ${mv.openDt}`);
+        setFootTag(<tr><th colSpan={4}><span className="movie">[{mv.movieCd}] {mv.movieNm}</span>개봉일: {mv.openDt}</th></tr>);
     }
 
     let trTags = [];
@@ -27,7 +28,8 @@ const BoxRows = ({mvs}) => {
     return (
         <>
             <tbody>{trTags}</tbody>
-            <tfoot><tr><th colSpan={4}>{footTag}</th></tr></tfoot>
+            {/* <tfoot><tr><th colSpan={4}>{footTag}</th></tr></tfoot> */}
+            <tfoot>{footTag}</tfoot>
         </>
     );
 }

@@ -35,4 +35,15 @@ td {
 table {
     border-spacing: 5px;
     border-collapse: separate;
+    margin: 0px 0px 6px;
+}
+
+h1 {
+    margin: 0px 0px 6px;
+    text-align: center;
+}
+
+.movie {
+    display: inline-flex;
+    width: 20em;
 }
