@@ -49,3 +49,7 @@ button:hover {
     padding: 4px 0px;
     border-radius: 10px;
 }
+
+h1 {
+    text-align: center;
+}
