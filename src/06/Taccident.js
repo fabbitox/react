@@ -17,7 +17,7 @@ const Taccident = () => {
     useEffect(() => {
         const accData = taData.filter((item) => item.사고유형_대분류 === selLar && item.사고유형_중분류 === selMed);
         const keys = ["사고건수", "부상신고자수", "경상자수", "중상자수", "사망자수"];
-        if (accData.length == 1) {
+        if (accData.length === 1) {
             setData(keys.map((item) => <div key={item}>
                 <div className={style.detail}>{item}</div><div>{accData[0][item]}</div>
             </div>));
