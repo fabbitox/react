@@ -1,5 +1,5 @@
 import data from './dataFrcst.json';
-import './Frcst.css';
+import style from './Frcst.module.css';
 import { useState } from 'react';
 
 const Frcst = () => {
@@ -17,19 +17,19 @@ const Frcst = () => {
         let dtcnItems = dtcn[k].split(',');
         dtcnItems = dtcnItems.map((item) => item.split(':'));
         dtcnItems = dtcnItems.map((item) => <div key={item.toString().trim()}>
-            <span className='area'>{item[0].trim()}</span>
+            <span className={style.area}>{item[0].trim()}</span>
             <span className={setClass(item)}>{(item[1].trim() === '높음' ? '⚠' : '') + item[1].trim()}</span>
         </div>);
         //console.log(dtcnItems);
         setContent(dtcnItems);
 
         function setClass(item) {
-            return item[1].trim() === '낮음' ? 'low' : item[1].trim() === '보통' ? 'normal' : 'high';
+            return item[1].trim() === '낮음' ? style.low : item[1].trim() === '보통' ? style.normal : style.high;
         }
     }
 
     let dtTag = [];
-    dtTag = Object.keys(dtcn).map((item) => <button key={item} onClick={() => detail(item)} className={selDt === item ? 'selected' : ''}>{item}</button>);
+    dtTag = Object.keys(dtcn).map((item) => <button key={item} onClick={() => detail(item)} className={selDt === item ? style.selected : ''}>{item}</button>);
 
     return (
         <main className='container'>
