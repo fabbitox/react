@@ -1,0 +1,23 @@
+button {
+    border-radius: 10px;
+    border: none;
+    background-color: #8749cc;
+    padding: 10px 20px;
+}
+
+.selected {
+    background-color: #6600ff;
+}
+
+.detail {
+    color: #440088;
+}
+
+h1 {
+    margin: 5px;
+    font-size: 1.4rem;
+}
+
+ul {
+    height: 80px;
+}

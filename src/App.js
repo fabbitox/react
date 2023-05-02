@@ -1,9 +1,14 @@
 import './App.css';
-import Frcst from './05/Frcst';
+// import Hello from './01/Hello';
+// import MyClock from './02/MyClock';
+// import Box from './03/Box';
+// import MyDiv from './04/MyDiv';
+// import Frcst from './05/Frcst';
+import Taccident from './06/Taccident';
 
 function App() {
   return (
-    <Frcst />
+    <Taccident />
   );
 }
 
