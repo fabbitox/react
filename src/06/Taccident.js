@@ -22,7 +22,7 @@ const Taccident = () => {
         const keys = ["사고건수", "부상신고자수", "경상자수", "중상자수", "사망자수"];
         if (accData.length === 1) {
             setData(keys.map((item) => <div key={item}>
-                <div className={style.detailkey}>{item}</div><div>{accData[0][item]}</div>
+                <div className={style.detailkey}>{item}</div><div>{parseInt(accData[0][item]).toLocaleString()}</div>
             </div>));
         }
     }, [selLar, selMed, taData]);
