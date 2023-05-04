@@ -10,3 +10,11 @@ h1 {
     margin-bottom: 12px;
     font-size: xx-large;
 }
+
+input:not([type=submit],[type=button],[type=reset],[type=range],[type=file],[readonly]):focus, select:focus, textarea:focus {
+    --box-shadow: 0 0 0 var(--outline-width) #6600ff33;
+}
+
+:where(select,textarea):is(:active,:focus), input:not([type=submit],[type=button],[type=reset],[role=switch],[readonly]):is(:active,:focus) {
+    --border-color: #6600ff66;
+}
