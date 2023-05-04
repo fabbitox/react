@@ -1,7 +1,7 @@
 import data from './dataTaccident.json';
 import TALargeNav from './TALargeNav';
 import TAMedNav from './TAMedNav';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import style from './Taccident.module.css';
 
 const Taccident = () => {
@@ -10,10 +10,13 @@ const Taccident = () => {
     large = new Set(large);
     large = [...large];
     const largeMedium = taData.map((item) => [item.사고유형_대분류, item.사고유형_중분류]);
+    const blank = useMemo(() => {
+        return <div className={style.detailbox}></div>;
+    }, []);
 
     const [selLar, setSelLar] = useState('');
     const [selMed, setSelMed] = useState('');
-    const [dataTag, setData] = useState('');
+    const [dataTag, setData] = useState(blank);
     useEffect(() => {
         const accData = taData.filter((item) => item.사고유형_대분류 === selLar && item.사고유형_중분류 === selMed);
         const keys = ["사고건수", "부상신고자수", "경상자수", "중상자수", "사망자수"];
@@ -26,8 +29,8 @@ const Taccident = () => {
 
     useEffect(() => {
         setSelMed('');
-        setData('');
-    }, [selLar]);
+        setData(blank);
+    }, [selLar, blank]);
 
     return (
         <main className='container'>

@@ -23,3 +23,10 @@ h1 {
 ul {
     height: 80px;
 }
+
+.detailbox {
+    display: block;
+    height: 63px;
+    border-radius: 10px;
+    background-color: #9966ff33;
+}
