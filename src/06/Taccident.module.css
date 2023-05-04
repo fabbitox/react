@@ -9,8 +9,10 @@ button {
     background-color: #6600ff;
 }
 
-.detail {
+.detailkey {
     color: #220044;
+    font-size: 1.1rem;
+    font-weight: bolder;
 }
 
 h1 {

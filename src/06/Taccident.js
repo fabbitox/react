@@ -11,18 +11,23 @@ const Taccident = () => {
     large = [...large];
     const largeMedium = taData.map((item) => [item.사고유형_대분류, item.사고유형_중분류]);
 
-    const [selLar, setSelLar] = useState(0);
-    const [selMed, setSelMed] = useState(0);
+    const [selLar, setSelLar] = useState('');
+    const [selMed, setSelMed] = useState('');
     const [dataTag, setData] = useState('');
     useEffect(() => {
         const accData = taData.filter((item) => item.사고유형_대분류 === selLar && item.사고유형_중분류 === selMed);
         const keys = ["사고건수", "부상신고자수", "경상자수", "중상자수", "사망자수"];
         if (accData.length === 1) {
             setData(keys.map((item) => <div key={item}>
-                <div className={style.detail}>{item}</div><div>{accData[0][item]}</div>
+                <div className={style.detailkey}>{item}</div><div>{accData[0][item]}</div>
             </div>));
         }
-    }, [selMed]);
+    }, [selLar, selMed, taData]);
+
+    useEffect(() => {
+        setSelMed('');
+        setData('');
+    }, [selLar]);
 
     return (
         <main className='container'>
