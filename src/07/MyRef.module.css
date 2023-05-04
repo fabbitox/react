@@ -1,0 +1,11 @@
+button {
+    background-color: #ccff00;
+    border: 2px dashed #99cc00;
+    border-radius: 10px;
+    color: #224400;
+    font-weight: 600;
+}
+
+h1 {
+    margin-bottom: 12px;
+}

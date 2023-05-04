@@ -4,11 +4,12 @@ import './App.css';
 // import Box from './03/Box';
 // import MyDiv from './04/MyDiv';
 // import Frcst from './05/Frcst';
-import Taccident from './06/Taccident';
+// import Taccident from './06/Taccident';
+import MyRef from './07/MyRef';
 
 function App() {
   return (
-    <Taccident />
+    <MyRef />
   );
 }
 
