@@ -2,7 +2,7 @@ import { useState } from "react";
 import './Box.css';
 
 const BoxRows = ({mvs}) => {
-    const [footTag, setFootTag] = useState('');
+    const [footTag, setFootTag] = useState();
     const showMv = (mv) => {
         console.log(mv);
         //setFootTag(`[${mv.movieCd}] ${mv.movieNm} 개봉일: ${mv.openDt}`);
