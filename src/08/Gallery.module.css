@@ -1,0 +1,23 @@
+button {
+    background-color: #ccff00;
+    border: 2px solid #99cc00;
+    border-radius: 10px;
+    color: #224400;
+    font-weight: 600;
+}
+
+input {
+    border-radius: 10px;
+}
+
+input:not([type=submit],[type=button],[type=reset],[type=range],[type=file],[readonly]):focus, select:focus, textarea:focus {
+    --box-shadow: 0 0 0 var(--outline-width) #6600ff33;
+}
+
+:where(select,textarea):is(:active,:focus), input:not([type=submit],[type=button],[type=reset],[role=switch],[readonly]):is(:active,:focus) {
+    --border-color: #6600ff66;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
