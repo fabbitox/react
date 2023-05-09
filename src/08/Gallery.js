@@ -12,6 +12,8 @@ const Gallery = () => {
 
     const addItem = (e) => {
         e.preventDefault();
+        if (txtref.current.value === '') return;
+        console.log(encodeURI(txtref.current.value));
     }
 
     const resetItem = (e) => {
@@ -27,7 +29,7 @@ const Gallery = () => {
             </header>
             <form>
                 <div className="grid">
-                    <input type="text" id="searchtx" name="searchtx" ref={txtref} />
+                    <input type="text" id="searchtx" name="searchtx" ref={txtref} placeholder="키워드를 입력하세요" />
                     <div className="grid">
                         <button onClick={(e) => addItem(e)}>검색</button>
                         <button onClick={(e) => resetItem(e)}>취소</button>
