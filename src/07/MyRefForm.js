@@ -19,7 +19,8 @@ const MyRefForm = () => {
         resetItem();
     };
 
-    const resetItem = () => {
+    const resetItem = (e) => {
+        e.preventDefault();
         txtref.current.value = '';
         txtref.current.focus();
     };
