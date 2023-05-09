@@ -1,6 +1,6 @@
 button {
     background-color: #ccff00;
-    border: 2px dashed #99cc00;
+    border: 2px solid #99cc00;
     border-radius: 10px;
     color: #224400;
     font-weight: 600;
@@ -9,6 +9,29 @@ button {
 h1 {
     margin-bottom: 12px;
     font-size: xx-large;
+}
+
+.item {
+    background-color: #6600cc;
+    color: #ccff00;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 5px;
+}
+
+label {
+    margin-bottom: 10px;
+    color: #440099;
+    font-weight: 600;
+}
+
+article>header {
+    padding: 40px;
+}
+
+input {
+    border-radius: 10px;
 }
 
 input:not([type=submit],[type=button],[type=reset],[type=range],[type=file],[readonly]):focus, select:focus, textarea:focus {

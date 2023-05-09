@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import './MyRef.module.css';
+import style from './MyRef.module.css';
 
 const MyRefForm = () => {
     const txtref = useRef();
@@ -8,17 +8,20 @@ const MyRefForm = () => {
     }, []);
 
     const itemArr = useRef([]);
-    const [itemTag, setItemTage] = useState();
+    const [itemTag, setItemTag] = useState();
 
     const addItem = (e) => {
         e.preventDefault();
-        itemArr.current = [...itemArr.current, txtref.current.value];
-        console.log('add item =', itemArr.current);
+        if (!itemArr.current.includes(txtref.current.value)) {
+            itemArr.current = [...itemArr.current, txtref.current.value];
+        }
+        setItemTag(itemArr.current.map((item) => <span key={item} className={style.item}>{item}</span>));
+        resetItem();
     };
 
-    const resetItem = (e) => {
-        e.preventDefault();
-        console.log('reset item');
+    const resetItem = () => {
+        txtref.current.value = '';
+        txtref.current.focus();
     };
 
     return (
@@ -38,7 +41,7 @@ const MyRefForm = () => {
                         </div>
                     </form>
                 </header>
-                <div className="grid"></div>
+                <div>{itemTag}</div>
             </article>
         </main>
     );
