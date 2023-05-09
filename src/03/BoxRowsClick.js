@@ -1,12 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 import './Box.css';
 
-const BoxRows = ({mvs}) => {
-    const [footTag, setFootTag] = useState();
+const BoxRows = ({mvs, ft, setFt}) => {
     const showMv = (mv) => {
-        console.log(mv);
+        // console.log(mv);
         //setFootTag(`[${mv.movieCd}] ${mv.movieNm} 개봉일: ${mv.openDt}`);
-        setFootTag(<tr><th colSpan={4}><span className="movie">[{mv.movieCd}] {mv.movieNm}</span>개봉일: {mv.openDt}</th></tr>);
+        setFt(<tr><th colSpan={4}><span className="movie">[{mv.movieCd}] {mv.movieNm}</span>개봉일: {mv.openDt}</th></tr>);
     }
 
     let trTags = [];
@@ -29,7 +28,7 @@ const BoxRows = ({mvs}) => {
         <>
             <tbody>{trTags}</tbody>
             {/* <tfoot><tr><th colSpan={4}>{footTag}</th></tr></tfoot> */}
-            <tfoot>{footTag}</tfoot>
+            <tfoot>{ft}</tfoot>
         </>
     );
 }
