@@ -21,3 +21,35 @@ input:not([type=submit],[type=button],[type=reset],[type=range],[type=file],[rea
 h1 {
     margin-bottom: 24px;
 }
+
+.cancel {
+    background-color: #99cc33;
+}
+
+.title {
+    font-size: x-large;
+    font-weight: 600;
+    color: #330066;
+    margin-right: 10px;
+}
+
+.location {
+    color: #554466;
+}
+
+.keyword {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #9977bb;
+    color: white;
+    display: inline-flex;
+}
+
+img {
+    margin-bottom: 20px;
+}
+
+.views {
+    display: flex;
+}
