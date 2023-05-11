@@ -44,6 +44,7 @@ h1 {
     background-color: #9977bb;
     color: white;
     display: inline-flex;
+    border: none;
 }
 
 img {

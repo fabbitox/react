@@ -13,7 +13,7 @@ const Gallery = () => {
 
     const [picInfos, setPicInfos] = useState([]);
 
-    const searchItem = (e) => {
+    const searchClick = (e) => {
         e.preventDefault();
         if (txtref.current.value === '') return;
         const word = encodeURI(txtref.current.value);
@@ -28,6 +28,13 @@ const Gallery = () => {
         txtref.current.focus();
     };
 
+    const search = (word) => {
+        txtref.current.value = word;
+        let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=lRsZfmJLjf7hvQqhA568pBWCTmyVfaTgEjP%2Bk9pXXrXNfh0DVuCIQ4NP4yt25SkXeLkQCUlA1K7tUpEnZxHtmQ%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=B&keyword=${word}&_type=json`;
+        fetch(url).then((resp) => resp.json()).then((data) => setPicInfos(data.response.body.items.item))
+        .catch((err) => console.log(err));
+    }
+
     return (
         <article>
             <header>
@@ -37,12 +44,12 @@ const Gallery = () => {
                 <div className="grid">
                     <input type="text" id="searchtx" name="searchtx" ref={txtref} placeholder="키워드를 입력하세요" />
                     <div className="grid">
-                        <button onClick={(e) => searchItem(e)}>검색</button>
+                        <button onClick={(e) => searchClick(e)}>검색</button>
                         <button onClick={(e) => resetItem(e)} className={style.cancel}>취소</button>
                     </div>
                 </div>
             </form>
-            <GalleryViews picInfos={picInfos} />
+            <GalleryViews picInfos={picInfos} search={search} />
         </article>
     );
 }
