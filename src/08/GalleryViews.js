@@ -14,8 +14,6 @@ const GalleryViews = ({picInfos}) => {
             <GalleryView picInfo={item} key={item.galContentId} />
             <GalleryView picInfo={picInfos[idx * 2 + 1]} key={picInfos[idx * 2 + 1].galContentId} />
         </div>);
-    // const viewslist = picInfos.filter((item, idx) => (idx % 2 === 0 && idx < picount - 1))
-    // .map((item) => <GalleryView picInfo={item} key={item.galContentId} />);
 
     return (
         <>
