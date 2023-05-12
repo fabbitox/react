@@ -2,7 +2,7 @@ import style from './Gallery.module.css';
 
 const GalleryView = ({picInfo, search}) => {
     const keywordTags = [...new Set(picInfo.galSearchKeyword.split(', '))]
-    .map((item) => <span className={style.keyword} key={picInfo.galContentId + item} onClick={() => search(item)} role='button'>{item}</span>);
+    .map((item, idx) => <span className={style.keyword} key={picInfo.galContentId + item + idx} onClick={() => search(item)} role='button'>{item}</span>);
 
     return (
         <article>

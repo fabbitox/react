@@ -7,18 +7,19 @@ const GalleryViews = ({picInfos, search}) => {
             검색 결과가 없습니다.
         </div>
     );
-    const picount = picInfos.length;
-    const last = picount % 2 === 1 ? <GalleryView picInfo={picInfos[picount - 1]} key={picInfos[picount - 1].galContentId} /> : <></>;
-    const viewslist = picInfos.filter((item, idx) => (idx % 2 === 0 && idx < picount - 1)).map((item, idx) => 
-        <div className={style.views}>
+    const picLen = picInfos.length;
+    const viewslist = picInfos.map((item, idx) =>
+        idx % 2 === 0 && idx + 1 < picLen ? <div className={style.views}>
             <GalleryView picInfo={item} key={item.galContentId} search={search} />
-            <GalleryView picInfo={picInfos[idx * 2 + 1]} key={picInfos[idx * 2 + 1].galContentId} search={search} />
-        </div>);
+            <GalleryView picInfo={picInfos[idx + 1]} key={picInfos[idx + 1].galContentId} search={search} />
+        </div> : idx % 2 === 0 ? <div className={style.views}>
+            <GalleryView picInfo={item} key={item.galContentId} search={search} />
+        </div> : <></>
+    )
 
     return (
         <>
             {viewslist}
-            <div>{last}</div>
         </>
     )
 };
