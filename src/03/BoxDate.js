@@ -20,7 +20,7 @@ const BoxDate = () => {
 
     const getMvList = () => {
         let dtnominus = dt.current.value.replaceAll('-', '');
-        let url = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=';
+        let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=';
         url += dtnominus;
 
         fetch(url).then((resp) => resp.json()).then((data) => setMvList(data.boxOfficeResult.dailyBoxOfficeList))
