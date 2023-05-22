@@ -43,6 +43,10 @@ input:not([type=checkbox], [type=radio]), select, textarea {
     border-radius: 10px;
 }
 
+select option:hover{
+    background-color:yellow;
+}
+
 :where(select, textarea):is(:active, :focus), select:not([multiple],[size]):is(:active, :focus),
 input:not([type=submit], [type=button], [type=reset], [role=switch], [readonly]):is(:active, :focus) {
     --border-color: #cc66ff99;
