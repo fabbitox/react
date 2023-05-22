@@ -6,11 +6,13 @@ import './App.css';
 // import Frcst from './05/Frcst';
 // import Taccident from './06/Taccident';
 // import MyRefForm from './07/MyRefForm';
-import Gallery from './08/Gallery';
+// import Gallery from './08/Gallery';
+// import RouteMain from './09/RouteMain';
+import Fcst from './10/Fcst';
 
 function App() {
   return (
-    <Gallery />
+    <Fcst />
   );
 }
 
