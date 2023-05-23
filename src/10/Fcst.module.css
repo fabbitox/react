@@ -62,3 +62,13 @@ select:not([multiple],[size]) {
     font-size: larger;
     padding-top: 6px;
 }
+
+thead th {
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+td {
+    text-align: center;
+}
