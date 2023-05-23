@@ -16,17 +16,23 @@ const FcstMain = () => {
     const dby = new Date(yesterday.getTime() - 1000 * 60 * 60 * 24);
     const dtStrOps = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const dateOps = [
-        <option value={today.toLocaleDateString()} key={today.toLocaleDateString()}>{today.toLocaleDateString(undefined, dtStrOps)}</option>,
+        <option value={today.toLocaleDateString()} key={today.toLocaleDateString()} className={style.opt}>{today.toLocaleDateString(undefined, dtStrOps)}</option>,
         <option value={yesterday.toLocaleDateString()} key={yesterday.toLocaleDateString()}>{yesterday.toLocaleDateString(undefined, dtStrOps)}</option>,
         <option value={dby.toLocaleDateString()} key={dby.toLocaleDateString()}>{dby.toLocaleDateString(undefined, dtStrOps)}</option>
     ];
+
     useEffect(() => {// default today, Busan
         setDt(dateFormat(today.toLocaleDateString()))
+        setDefaultArea(setArea, setX, setY);
+    }, [today]);
+
+    const setDefaultArea = () => {
         const selected = xy.filter((item) => item.행정구역코드 === 2600000000)[0];
         setArea(selected["1단계"]);
         setX(selected["격자 X"]);
         setY(selected["격자 Y"]);
-    }, [today]);
+    }
+
     const dateFormat = (date) => {
         const splitted = date.split('.').map((item) => item.trim());
         let formatted = splitted[0];
@@ -34,12 +40,18 @@ const FcstMain = () => {
         formatted += (parseInt(splitted[2]) < 10 ? "0" : "") + splitted[2];
         return formatted;
     }
+
     const selArea = () => {
+        if (code.current.value === '') {
+            setDefaultArea();
+            return;
+        }
         const selected = xy.filter((item) => item.행정구역코드 === parseInt(code.current.value))[0];
         setArea(selected["1단계"]);
         setX(selected["격자 X"]);
         setY(selected["격자 Y"]);
     }
+
     return (
         <article>
             <header><h1>단기예보 선택</h1></header>
@@ -48,7 +60,7 @@ const FcstMain = () => {
                     {dateOps}
                 </select>
                 <select id="area" name="area" ref={code} onChange={selArea}>
-                    <option value=''>지역 선택</option>
+                    <option value='' className={style.opt}>지역 선택 (기본값: 부산광역시)</option>
                     {ops}
                 </select>
             </div>
