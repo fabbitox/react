@@ -19,6 +19,14 @@ const UltraSrtFcst = () => {
         return dt.substr(0, 4) + '/' + dt.substr(4, 2) + '/' + dt.substr(6, 2);
     }
 
+    const isToday = (dt) => {
+        let date = new Date().getDate();
+        date = (date < 10 ? "0" : "") + date;
+        if (date === dt.substr(6, 2))
+            return true;
+        return false;
+    }
+
     const changeCt = () => {
         const value = cg.current.value.split(" ");
         setCg(value[0]);
@@ -29,7 +37,26 @@ const UltraSrtFcst = () => {
     }
 
     useEffect(() => {
-        let time = '0630';
+        const date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let offset;
+        if (isToday(dt)) {
+            offset = 1000 * 60 * minute * -1;
+            if (minute < 45) {
+                offset -= 1000 * 60 * 60;
+            }
+        } else {
+            offset = 1000 * 60 * minute * -1;
+            if (minute >= 30) {
+                offset += 1000 * 60 * 60;
+            }
+        }
+        offset += 1000 * 60 * 30;
+        const dateNew = new Date(date.getTime() + offset);
+        hour = dateNew.getHours();
+        minute = dateNew.getMinutes();
+        const time = (hour < 10 ? "0" : "") + hour + (minute < 10 ? "0" : "") + minute;
         let url = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=lRsZfmJLjf7hvQqhA568pBWCTmyVfaTgEjP%2Bk9pXXrXNfh0DVuCIQ4NP4yt25SkXeLkQCUlA1K7tUpEnZxHtmQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&";
         url += `base_date=${dt}&base_time=${time}&nx=${x}&ny=${y}`;
         fetch(url).then((resp) => resp.json()).then((data) => setFcst(data.response.body.items.item))

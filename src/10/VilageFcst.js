@@ -56,7 +56,6 @@ const VilageFcst = () => {
         hour = dateNew.getHours();
         minute = dateNew.getMinutes();
         const time = (hour < 10 ? "0" : "") + hour + (minute < 10 ? "0" : "") + minute;
-        console.log(time);
         let url = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=lRsZfmJLjf7hvQqhA568pBWCTmyVfaTgEjP%2Bk9pXXrXNfh0DVuCIQ4NP4yt25SkXeLkQCUlA1K7tUpEnZxHtmQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&";
         url += `base_date=${dt}&base_time=${time}&nx=${x}&ny=${y}`;
         fetch(url).then((resp) => resp.json()).then((data) => setFcst(data.response.body.items.item))
