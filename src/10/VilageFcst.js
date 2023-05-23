@@ -44,9 +44,6 @@ const VilageFcst = () => {
         if (isToday(dt)) {
             offset = 1000 * 60 * minute * -1;
             offset -= ((hour % 3) + 1) * 60 * 60 * 1000;
-            if (minute < 10) {
-                offset -= 1000 * 60 * 60;
-            }
         } else {
             offset = 1000 * 60 * minute * -1;
             hour += 1;
