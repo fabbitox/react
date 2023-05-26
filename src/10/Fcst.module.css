@@ -72,3 +72,15 @@ thead th {
 td {
     text-align: center;
 }
+
+table {
+    table-layout: fixed;
+}
+
+.fcstdate {
+    width: 30%;
+}
+
+.fcstime {
+    width: 25%;
+}

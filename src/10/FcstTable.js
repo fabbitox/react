@@ -1,4 +1,4 @@
-//import style from "./Fcst.module.css";
+import style from "./Fcst.module.css";
 
 const FcstTable = ({fcst, cg, unit}) => {
     const valStr = (item) => {
@@ -41,16 +41,24 @@ const FcstTable = ({fcst, cg, unit}) => {
         }
     }
 
+    const dateFormat = (dt) => {
+        return dt.substr(0, 4) + '.' + dt.substr(4, 2) + '.' + dt.substr(6, 2);
+    }
+
+    const timeFormat = (time) => {
+        return time.substr(0, 2) + ':' + time.substr(2, 2);
+    }
+
     const trs = fcst.filter((item) => item.category === cg).map((item, idx) => <tr key={idx}>
-        <td>{item.fcstDate}</td><td>{item.fcstTime}</td><td>{valStr(item)}</td>
+        <td>{dateFormat(item.fcstDate)}</td><td>{timeFormat(item.fcstTime)}</td><td>{valStr(item)}</td>
         </tr>);
 
     return (
         <table>
             <thead>
                 <tr>
-                    <th scope="col">예측일자</th>
-                    <th scope="col">예측시간</th>
+                    <th scope="col" className={style.fcstdate}>예측일자</th>
+                    <th scope="col" className={style.fcstime}>예측시간</th>
                     <th scope="col">예보</th>
                 </tr>
             </thead>
