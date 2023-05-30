@@ -8,11 +8,15 @@ import './App.css';
 // import MyRefForm from './07/MyRefForm';
 // import Gallery from './08/Gallery';
 // import RouteMain from './09/RouteMain';
-import Fcst from './10/Fcst';
+// import Fcst from './10/Fcst';
+import Count from './111/Count';
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
-    <Fcst />
+    <RecoilRoot>
+      <Count />
+    </RecoilRoot>
   );
 }
 
